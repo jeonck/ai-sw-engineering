@@ -92,6 +92,17 @@ const sidebars: SidebarsConfig = {
       ],
     },
   ],
+
+  lawsSidebar: [
+    {
+      type: 'category',
+      label: 'SW공학의 법칙들',
+      collapsed: false,
+      items: [
+        'laws/intro',
+      ],
+    },
+  ],
 };
 
 export default sidebars;
