@@ -135,6 +135,7 @@ const sidebars: SidebarsConfig = {
         'laws/zawinskis-law',
         'laws/second-system-effect',
         'laws/technical-debt',
+        'laws/lehmans-laws',
       ],
     },
     {
@@ -203,7 +204,7 @@ const sidebars: SidebarsConfig = {
         'laws/hype-cycle-amaras-law',
         'laws/lindy-effect',
         'laws/pareto-principle',
-        'laws/lehmans-laws',
+        'laws/sturgeons-law',
       ],
     },
   ],
