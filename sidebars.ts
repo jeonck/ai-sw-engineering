@@ -103,6 +103,7 @@ const sidebars: SidebarsConfig = {
         'laws/cap-theorem',
         'laws/fallacies-of-distributed-computing',
         'laws/amdahls-law',
+        'laws/gustafsons-law',
         'laws/brooks-law',
         'laws/dunbars-number',
         'laws/conways-law',
