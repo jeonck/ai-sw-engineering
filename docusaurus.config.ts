@@ -8,6 +8,11 @@ const SITE_TITLE = 'AI시대의 SW공학';
 const SITE_TAGLINE = 'AI가 만든 코드를 설계하고, 검증하고, 운영하는 기술';
 
 const config: Config = {
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
+
   title: SITE_TITLE,
   tagline: SITE_TAGLINE,
   favicon: 'img/favicon.ico',
