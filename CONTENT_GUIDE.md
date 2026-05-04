@@ -70,6 +70,51 @@ const config: Config = {
 
 ---
 
+## 수식(LaTeX) 필수 설정 (신규 프로젝트)
+
+`$$...$$` 또는 `$...$` 수식을 사용하려면 **패키지 설치와 플러그인 설정 두 가지가 모두 필요**합니다.  
+설정이 빠지면 수식이 렌더링되지 않고 MDX 컴파일 오류가 발생합니다.
+
+### 1. 패키지 설치
+
+```bash
+npm install remark-math rehype-katex
+```
+
+### 2. `docusaurus.config.ts` 설정
+
+```ts
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+
+const config: Config = {
+  presets: [
+    ['classic', {
+      docs: {
+        remarkPlugins: [remarkMath],
+        rehypePlugins: [rehypeKatex],
+        // ... 나머지 설정
+      },
+    }],
+  ],
+};
+```
+
+### 수식 작성 예시
+
+```markdown
+블록 수식:
+$$
+\text{Speedup}(S) = \frac{1}{(1-P) + \frac{P}{N}}
+$$
+
+인라인 수식: $S = \frac{1}{(1-P)}$
+```
+
+> **주의**: `remark-math`와 `rehype-katex`는 **둘 다** 설정해야 합니다. 하나만 설정하면 동작하지 않습니다.
+
+---
+
 ## Mermaid 다이어그램 작성 시 주의사항
 
 ### ✅ 정상
