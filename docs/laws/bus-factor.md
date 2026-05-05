@@ -25,13 +25,23 @@ flowchart LR
 
 ## II. **Bus Factor**의 메커니즘과 형상화
 
-### 가. 지식 편중에 따른 리스크 전이 메커니즘
+### 가. 지식 의존성 및 리스크 전이 구조 모델
+
 ```mermaid
-%%{init: { 'theme': 'base', 'themeVariables': { 'edgeLabelBackground': '#fff' }}}%%
-flowchart LR
-    A2["핵심 인력 1인(N=1)에게\n모든 정보가 집중된 상태"] -- "부재 발생 시 대체 인력의\n학습 곡선(Learning Curve) 극복 불가" --> B2["시스템 유지보수 불가 및\n기술 부채의 폭발적 증가"]
-    style A2 fill:#f9f9f9,stroke:#333,stroke-width:1px
-    style B2 fill:#e1f5fe,stroke:#01579b,stroke-width:1px
+graph TD
+    Knowledge["핵심 지식 및 권한\n(Critical Knowledge)"] --> Hero["핵심 1인 (Solo Hero)\n(암묵지 독점, N=1)"]
+    Knowledge -.-> Team["나머지 팀원 (Rest of Team)\n(정보 부재, 블랙박스화)"]
+    
+    Hero -- "갑작스러운 부재" --> Gap["지식 공백 및 학습 격차\n(Knowledge Gap)"]
+    Team -- "대체 시도" --> Gap
+    
+    Gap -- "병목 발생" --> Halt["프로젝트 가동 중단\n(Project Stagnation)"]
+    
+    style Knowledge fill:#f9f9f9,stroke:#333,stroke-width:1px
+    style Hero fill:#fffde7,stroke:#fbc02d,stroke-width:1px
+    style Team fill:#eceff1,stroke:#455a64,stroke-width:1px
+    style Gap fill:#fce4ec,stroke:#e91e63,stroke-width:1px
+    style Halt fill:#e1f5fe,stroke:#01579b,stroke-width:2px
 ```
 
 ### 나. **Bus Factor** 수준별 조직의 안정성 비교

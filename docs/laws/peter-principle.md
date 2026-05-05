@@ -25,13 +25,22 @@ flowchart LR
 
 ## II. **Peter** 원칙의 메커니즘과 형상화
 
-### 가. 유능함의 상실과 무능력 수준 도달 과정
+### 가. 계층적 승진에 따른 무능력 전이 모델
+
 ```mermaid
-%%{init: { 'theme': 'base', 'themeVariables': { 'edgeLabelBackground': '#fff' }}}%%
-flowchart LR
-    A2["직무 A: 유능 (Competent)\n→ 승진 대상"] -- "직무 성격의 근본적 변화\n(예: 개발자 → 관리자)" --> B2["직무 B: 무능 (Incompetent)\n→ 승진 정체 및 정착"]
-    style A2 fill:#f9f9f9,stroke:#333,stroke-width:1px
-    style B2 fill:#e1f5fe,stroke:#01579b,stroke-width:1px
+graph TD
+    LevelA["직급 N: 유능 (Competent)\n(실무 역량 일치)"] --> Promo["승진 (Promotion)\n(과거 성과 기반)"]
+    Promo --> LevelB["직급 N+1: 무능 (Incompetent)\n(새로운 직무 역량 미달)"]
+    
+    LevelB -- "승진 정체" --> Final["무능력 수준의 정착\n(Final Placement)"]
+    
+    LevelA -. "유능할 때까지 승진" .-> LevelB
+    LevelB -. "무능해지면 승진 중단" .-> Final
+    
+    style LevelA fill:#e1f5fe,stroke:#01579b,stroke-width:1px
+    style Promo fill:#f9f9f9,stroke:#333,stroke-width:1px
+    style LevelB fill:#fffde7,stroke:#fbc02d,stroke-width:1px
+    style Final fill:#fce4ec,stroke:#e91e63,stroke-width:2px
 ```
 
 ### 나. **Peter** 원칙이 조직에 미치는 영향

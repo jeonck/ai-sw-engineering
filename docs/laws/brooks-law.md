@@ -25,13 +25,23 @@ flowchart LR
 
 ## II. **Brooks**의 법칙의 메커니즘과 형상화
 
-### 가. 의사소통 채널 폭발 및 생산성 저하 메커니즘
+### 가. 인력 투입에 따른 지연 가속 구조 모델
+
 ```mermaid
-%%{init: { 'theme': 'base', 'themeVariables': { 'edgeLabelBackground': '#fff' }}}%%
-flowchart LR
-    A2["인원수(n)의 선형적 증가"] -- "의사소통 채널 수\nn(n-1)/2로 폭증" --> B2["개인별 유효 생산성\n급격한 하락"]
-    style A2 fill:#f9f9f9,stroke:#333,stroke-width:1px
-    style B2 fill:#e1f5fe,stroke:#01579b,stroke-width:1px
+graph TD
+    Input["지연 프로젝트에\n신규 인력 투입"] --> Training["신규 인력 교육 부하\n(Training Overhead)"]
+    Input --> Communication["의사소통 채널 폭증\n(Communication Cost)"]
+    
+    Training -- "기존 인력의 가용 시간 잠식" --> Productivity["유효 생산성 저하\n(Productivity Loss)"]
+    Communication -- "관리 오버헤드 증가" --> Productivity
+    
+    Productivity -- "병목 현상 심화" --> Delay["추가 일정 지연\n(Schedule Slippage)"]
+    
+    style Input fill:#f9f9f9,stroke:#333,stroke-width:1px
+    style Training fill:#fffde7,stroke:#fbc02d,stroke-width:1px
+    style Communication fill:#fce4ec,stroke:#e91e63,stroke-width:1px
+    style Productivity fill:#eceff1,stroke:#455a64,stroke-width:1px
+    style Delay fill:#e1f5fe,stroke:#01579b,stroke-width:2px
 ```
 
 ### 나. **Brooks**의 법칙이 발생하는 주요 원인

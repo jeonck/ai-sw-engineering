@@ -25,13 +25,22 @@ flowchart LR
 
 ## II. **Dunbar**의 수의 메커니즘과 형상화
 
-### 가. 관계의 밀도에 따른 계층적 네트워크 구조
+### 가. 관계 밀도와 규모에 따른 계층적 네트워크 모델
+
 ```mermaid
-%%{init: { 'theme': 'base', 'themeVariables': { 'edgeLabelBackground': '#fff' }}}%%
-flowchart LR
-    A2["소수 정예 핵심 팀\n(Support Group: 5~15명)"] -- "확장을 통한\n사회적 결속력 분산" --> B2["느슨한 유대 관계의 한계\n(Dunbar Number: 150명)"]
-    style A2 fill:#f9f9f9,stroke:#333,stroke-width:1px
-    style B2 fill:#e1f5fe,stroke:#01579b,stroke-width:1px
+graph TD
+    Cognitive["인지적 가용 자원\n(Cognitive Limit)"] --> Intimacy["친밀도 기반 핵심 그룹\n(5~15명: 높은 결속력)"]
+    Cognitive -.-> Limit["사회적 관계 임계치\n(150명: Dunbar Number)"]
+    
+    Intimacy -- "규모 확장 시" --> Social["사회적 네트워크\n(Social Network)"]
+    Social -- "신뢰 유지 한계 도달" --> Limit
+    
+    Limit -- "해결책" --> Formal["공식적 관리 체계 및\n기업 문화 도입"]
+    
+    style Cognitive fill:#f9f9f9,stroke:#333,stroke-width:1px
+    style Intimacy fill:#fce4ec,stroke:#e91e63,stroke-width:1px
+    style Limit fill:#fffde7,stroke:#fbc02d,stroke-width:1px
+    style Formal fill:#e1f5fe,stroke:#01579b,stroke-width:2px
 ```
 
 ### 나. 규모별 조직의 특성 변화

@@ -25,13 +25,20 @@ flowchart LR
 
 ## II. **Goodhart**의 법칙의 메커니즘과 형상화
 
-### 가. 지표 최적화를 위한 행동 전이 및 가치 괴리 메커니즘
+### 가. 지표의 목표화에 따른 가치 괴리 구조 모델
+
 ```mermaid
-%%{init: { 'theme': 'base', 'themeVariables': { 'edgeLabelBackground': '#fff' }}}%%
-flowchart LR
-    A2["정량적 지표의 보상 체계 결합\n(Metric-Reward Coupling)"] -- "본질적 개선이 아닌\n수치 최적화로의 행동 전이" --> B2["지표와 실질 성과의 괴리\n(Metric-Reality Gap)"]
-    style A2 fill:#f9f9f9,stroke:#333,stroke-width:1px
-    style B2 fill:#e1f5fe,stroke:#01579b,stroke-width:1px
+graph TD
+    Value["본질적 비즈니스 가치\n(Intrinsic Business Value)"] --> Metric["정량적 측정 지표\n(Quantitative Proxy Metric)"]
+    
+    Metric -- "목표화 및 인센티브 결합\n(Targeting & Incentives)" --> Behavior["수치 중심의 최적화 행동\n(Metric Gaming Behavior)"]
+    
+    Behavior -- "실질적 가치 훼손 (Decoupling)" --> Value
+    Behavior -- "지표의 타당성 오염 (Pollution)" --> Metric
+    
+    style Value fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    style Metric fill:#fffde7,stroke:#fbc02d,stroke-width:1px
+    style Behavior fill:#fce4ec,stroke:#e91e63,stroke-width:1px
 ```
 
 ### 나. 소프트웨어 개발에서의 지표 왜곡 사례

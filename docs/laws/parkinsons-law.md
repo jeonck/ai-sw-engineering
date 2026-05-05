@@ -25,13 +25,23 @@ flowchart LR
 
 ## II. **Parkinson**의 법칙의 메커니즘과 형상화
 
-### 가. 시간 할당량에 따른 업무 밀도 및 범위의 변화 메커니즘
+### 가. 가용 자원에 따른 업무의 자기 팽창 구조 모델
+
 ```mermaid
-%%{init: { 'theme': 'base', 'themeVariables': { 'edgeLabelBackground': '#fff' }}}%%
-flowchart LR
-    A2["타이트한 마감 시한\n(High Density)"] -- "시간적 여유(Buffer) 추가" --> B2["불필요한 기능 및 절차 추가\n(Expansion of Scope)"]
-    style A2 fill:#f9f9f9,stroke:#333,stroke-width:1px
-    style B2 fill:#e1f5fe,stroke:#01579b,stroke-width:1px
+graph TD
+    Resource["가용 자원 할당\n(Time & Budget)"] --> Mechanism["업무의 자기 팽창 메커니즘\n(Self-Expansion)"]
+    
+    Mechanism --> Complexity["불필요한 복잡성 증가\n(Complexity)"]
+    Mechanism --> Scope["범위의 임의 확대\n(Scope Creep)"]
+    
+    Complexity -- "집중력 분산" --> Waste["자원 소진 및 효율 저하\n(Efficiency Loss)"]
+    Scope -- "폴리싱 오버헤드" --> Waste
+    
+    style Resource fill:#f9f9f9,stroke:#333,stroke-width:1px
+    style Mechanism fill:#fffde7,stroke:#fbc02d,stroke-width:1px
+    style Complexity fill:#fce4ec,stroke:#e91e63,stroke-width:1px
+    style Scope fill:#fce4ec,stroke:#e91e63,stroke-width:1px
+    style Waste fill:#e1f5fe,stroke:#01579b,stroke-width:2px
 ```
 
 ### 나. **Parkinson**의 법칙이 초래하는 비효율의 유형

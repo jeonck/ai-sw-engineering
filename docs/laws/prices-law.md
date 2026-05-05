@@ -1,7 +1,7 @@
 ---
 sidebar_position: 6
 title: "소수의 핵심 인재가 성과의 절반을 창출한다, Price의 법칙"
-sidebar_label: Price of 법칙
+sidebar_label: Price의 법칙
 ---
 
 # 소수의 핵심 인재가 성과의 절반을 창출한다, Price의 법칙
@@ -25,13 +25,22 @@ flowchart LR
 
 ## II. **Price**의 법칙의 메커니즘과 형상화
 
-### 가. 인원수(N)와 핵심 성과자(√N)의 관계 메커니즘
+### 가. 성과 분포의 비선형성과 생산성 불균형 모델
+
 ```mermaid
-%%{init: { 'theme': 'base', 'themeVariables': { 'edgeLabelBackground': '#fff' }}}%%
-flowchart LR
-    A2["조직 규모(N)의\n기하급수적 확장"] -- "고성과자 수(√N)의\n상대적 완만한 증가" --> B2["대다수 구성원의\n평균 생산성 하향 평준화"]
-    style A2 fill:#f9f9f9,stroke:#333,stroke-width:1px
-    style B2 fill:#e1f5fe,stroke:#01579b,stroke-width:1px
+graph TD
+    Total["조직 규모 확장 (N)"] --> Dist["성과 분포의 비선형성\n(Non-linear Distribution)"]
+    
+    Dist --> High["상위 정예 (√N)\n(기하급수적 생산성)"]
+    Dist --> LongTail["롱테일 다수 (N - √N)\n(선형적/보조적 생산성)"]
+    
+    High -- "전체 성과의 50% 창출" --> Goal["전체 비즈니스 가치\n(Business Value)"]
+    LongTail -- "나머지 50% 기여" --> Goal
+    
+    style Total fill:#f9f9f9,stroke:#333,stroke-width:1px
+    style High fill:#fffde7,stroke:#fbc02d,stroke-width:1px
+    style LongTail fill:#eceff1,stroke:#455a64,stroke-width:1px
+    style Goal fill:#e1f5fe,stroke:#01579b,stroke-width:2px
 ```
 
 ### 나. **Price**의 법칙이 시사하는 조직 내 불균형

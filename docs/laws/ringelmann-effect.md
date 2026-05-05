@@ -25,13 +25,24 @@ flowchart LR
 
 ## II. **Ringelmann** 효과의 메커니즘과 형상화
 
-### 가. 인원수 증가에 따른 실제 성과와 잠재 성과의 괴리
+### 가. 집단 규모 확대에 따른 생산성 손실 구조 모델
+
 ```mermaid
-%%{init: { 'theme': 'base', 'themeVariables': { 'edgeLabelBackground': '#fff' }}}%%
-flowchart LR
-    A2["물리적 인원 추가 투입\n(Input Increase)"] -- "동기 저하 및\n조정 손실 발생" --> B2["1인당 평균 생산성\n지속적 하락"]
-    style A2 fill:#f9f9f9,stroke:#333,stroke-width:1px
-    style B2 fill:#e1f5fe,stroke:#01579b,stroke-width:1px
+graph TD
+    Scale["집단 규모의 확대\n(Group Size Increase)"] --> Potential["이론적 잠재 성과\n(Potential Productivity)"]
+    
+    Scale -- "협업 복잡성 증가" --> Coord["조정 손실\n(Coordination Loss)"]
+    Scale -- "개인 익명성 증가" --> Motiv["동기 손실\n(Social Loafing)"]
+    
+    Potential -.-> Actual["실제 발휘 성과\n(Actual Productivity)"]
+    Coord --> Actual
+    Motiv --> Actual
+    
+    style Scale fill:#f9f9f9,stroke:#333,stroke-width:1px
+    style Potential fill:#fffde7,stroke:#fbc02d,stroke-width:1px
+    style Coord fill:#fce4ec,stroke:#e91e63,stroke-width:1px
+    style Motiv fill:#fce4ec,stroke:#e91e63,stroke-width:1px
+    style Actual fill:#e1f5fe,stroke:#01579b,stroke-width:2px
 ```
 
 ### 나. **Ringelmann** 효과의 주요 원인 분석

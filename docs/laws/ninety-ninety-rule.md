@@ -25,13 +25,23 @@ flowchart LR
 
 ## II. **90-90** 법칙의 메커니즘과 형상화
 
-### 가. 개발 단계별 소요 시간과 가시적 진척도의 불일치 메커니즘
+### 가. 개발 단계별 소요 시간과 진척도의 비선형 구조 모델
+
 ```mermaid
-%%{init: { 'theme': 'base', 'themeVariables': { 'edgeLabelBackground': '#fff' }}}%%
-flowchart LR
-    A2["초기 기능 구현 단계\n(빠른 가시적 진척)"] -- "통합 리스크 및\n엣지 케이스 대응 발생" --> B2["최종 안정화 단계\n(지루한 미세 조정 반복)"]
-    style A2 fill:#f9f9f9,stroke:#333,stroke-width:1px
-    style B2 fill:#e1f5fe,stroke:#01579b,stroke-width:1px
+graph TD
+    Project["프로젝트 전체 개발 기간\n(Total Effort: 100% + α)"] --> Initial["초기 90% 개발\n(기능 구현 및 해피 패스)"]
+    Project --> Final["잔여 10% 마무리\n(안정화 및 예외 처리)"]
+    
+    Initial -- "가시적 진척 (높음)\n소요 시간 (최초 90%)" --> Done["기능상 완료\n(Functional Done)"]
+    Final -- "가시적 진척 (정체)\n소요 시간 (추가 90%)" --> Ship["배포 가능 수준\n(Shippable Quality)"]
+    
+    Done -. "낙관적 일정 산정의 지점" .-> Ship
+    
+    style Project fill:#f9f9f9,stroke:#333,stroke-width:1px
+    style Initial fill:#e1f5fe,stroke:#01579b,stroke-width:1px
+    style Final fill:#fce4ec,stroke:#e91e63,stroke-width:1px
+    style Done fill:#eceff1,stroke:#455a64,stroke-width:1px
+    style Ship fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
 ```
 
 ### 나. **90-90** 법칙이 발생하는 주요 원인

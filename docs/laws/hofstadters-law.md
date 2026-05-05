@@ -25,13 +25,23 @@ flowchart LR
 
 ## II. **Hofstadter**의 법칙의 메커니즘과 형상화
 
-### 가. 일정 산정과 실제 소요 시간의 괴리 발생 메커니즘
+### 가. 재귀적 일정 팽창 및 리스크 누적 모델
+
 ```mermaid
-%%{init: { 'theme': 'base', 'themeVariables': { 'edgeLabelBackground': '#fff' }}}%%
-flowchart LR
-    A2["선형적 작업 진척도 가정\n(Planned Time)"] -- "상호 의존성 폭발 및\n예외 케이스 누적" --> B2["기하급수적 일정 팽창\n(Actual Time)"]
-    style A2 fill:#f9f9f9,stroke:#333,stroke-width:1px
-    style B2 fill:#e1f5fe,stroke:#01579b,stroke-width:1px
+graph TD
+    Estimate["최초 일정 산정\n(Optimistic Estimate)"] --> Recursive["Hofstadter 필터링\n(Recursive Buffer Adjustment)"]
+    
+    Recursive -- "재귀적 지연 발생" --> Inlation["기하급수적 일정 팽창\n(Time Inflation)"]
+    
+    Subtasks["잠재적 하위 작업\n(Hidden Subtasks)"] --> Inlation
+    Unknowns["미지의 변수\n(Unknown Unknowns)"] --> Inlation
+    
+    Inlation -- "최종 결과" --> Actual["실제 소요 시간\n(Actual Duration)"]
+    
+    style Estimate fill:#f9f9f9,stroke:#333,stroke-width:1px
+    style Recursive fill:#fffde7,stroke:#fbc02d,stroke-width:1px
+    style Inlation fill:#fce4ec,stroke:#e91e63,stroke-width:1px
+    style Actual fill:#e1f5fe,stroke:#01579b,stroke-width:2px
 ```
 
 ### 나. 일정 지연을 유발하는 주요 심리적/기술적 요인

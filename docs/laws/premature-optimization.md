@@ -25,13 +25,24 @@ flowchart LR
 
 ## II. 조기 최적화의 메커니즘과 형상화
 
-### 가. 측정 기반 최적화 vs 조기 최적화의 경로 차이
+### 가. 최적화 경로 결정 및 기술 부채 생성 모델
+
 ```mermaid
-%%{init: { 'theme': 'base', 'themeVariables': { 'edgeLabelBackground': '#fff' }}}%%
-flowchart LR
-    A2["기능 구현 및\n가독성 확보"] -- "프로파일링을 통한\n핵심 3% 지점 탐색" --> B2["데이터 기반의\n효과적 성능 개선"]
-    style A2 fill:#f9f9f9,stroke:#333,stroke-width:1px
-    style B2 fill:#e1f5fe,stroke:#01579b,stroke-width:1px
+graph TD
+    Code["초기 코드 작성\n(Functional & Readable)"] --> Path{최적화 시점 결정}
+    
+    Path -- "추측 기반 (조기)" --> Premature["조기 최적화\n(Complexity & Technical Debt)"]
+    Path -- "측정 기반 (사후)" --> Measure["프로파일링 및 병목 탐색\n(Data-Driven Analysis)"]
+    
+    Measure -- "핵심 3% 집중" --> Optimized["효과적 성능 개선\n(Maintainable Performance)"]
+    
+    Premature -. "가독성 파괴" .-> Optimized
+    
+    style Code fill:#f9f9f9,stroke:#333,stroke-width:1px
+    style Path fill:#fffde7,stroke:#fbc02d,stroke-width:1px
+    style Premature fill:#fce4ec,stroke:#e91e63,stroke-width:1px
+    style Measure fill:#e1f5fe,stroke:#01579b,stroke-width:1px
+    style Optimized fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
 ```
 
 ### 나. 조기 최적화가 초래하는 부정적 비용

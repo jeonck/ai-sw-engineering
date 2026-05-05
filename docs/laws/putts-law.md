@@ -25,13 +25,21 @@ flowchart LR
 
 ## II. **Putt**의 법칙의 메커니즘과 형상화
 
-### 가. 계층 상승에 따른 기술적 역량과 권한의 교차 메커니즘
+### 가. 기술 역량과 결정 권한의 이분법적 역설 모델
+
 ```mermaid
-%%{init: { 'theme': 'base', 'themeVariables': { 'edgeLabelBackground': '#fff' }}}%%
-flowchart LR
-    A2["하위 계층: 기술 역량(高)\n의사결정 권한(低)"] -- "직위 상승에 따른\n실무 감각 상실 및 권한 집중" --> B2["상위 계층: 기술 역량(低)\n의사결정 권한(高)"]
-    style A2 fill:#f9f9f9,stroke:#333,stroke-width:1px
-    style B2 fill:#e1f5fe,stroke:#01579b,stroke-width:1px
+graph TD
+    Hierarchy["조직의 수직적 계층 구조\n(Hierarchy)"] --> Manager["관리 계층 (Upper Layer)\n(결정 권한: 高 / 기술 이해: 低)"]
+    Hierarchy --> Technician["기술 계층 (Lower Layer)\n(기술 이해: 高 / 결정 권한: 低)"]
+    
+    Technician -- "실무 데이터 보고" --> Manager
+    Manager -- "비기술적 의사결정" --> Technician
+    
+    Manager -. "괴리 발생" .-> Technician
+    
+    style Hierarchy fill:#f9f9f9,stroke:#333,stroke-width:1px
+    style Manager fill:#fffde7,stroke:#fbc02d,stroke-width:1px
+    style Technician fill:#e1f5fe,stroke:#01579b,stroke-width:1px
 ```
 
 ### 나. **Putt**의 법칙이 초래하는 조직적 리스크

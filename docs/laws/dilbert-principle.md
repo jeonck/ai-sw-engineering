@@ -25,13 +25,22 @@ flowchart LR
 
 ## II. **Dilbert** 원칙의 메커니즘과 형상화
 
-### 가. 무능력자의 관리직 배치 및 생산성 유지 메커니즘
+### 가. 무능력자의 격리 승진 및 생산성 보호 모델
+
 ```mermaid
-%%{init: { 'theme': 'base', 'themeVariables': { 'edgeLabelBackground': '#fff' }}}%%
-flowchart LR
-    A2["기술적 역량 부족 직원\n(Bottleneck Risk)"] -- "생산 프로세스 밖으로의\n수직적 격리 승진" --> B2["의사결정권은 있으나\n실질적 영향력은 낮은 관리직"]
-    style A2 fill:#f9f9f9,stroke:#333,stroke-width:1px
-    style B2 fill:#e1f5fe,stroke:#01579b,stroke-width:1px
+graph TD
+    Staff["전체 직원 그룹\n(Employee Pool)"] --> Incomp["무능력 직원\n(Incompetent: 병목 리스크)"]
+    Staff --> Comp["유능한 직원\n(Competent: 핵심 생산자)"]
+    
+    Incomp -- "생산 라인에서 배제\n(수직적 격리 승진)" --> Manager["관리 계층 (Upper Layer)\n(의사결정권 유무와 무관한 격리)"]
+    Comp -- "핵심 업무 유지\n(현장 보존)" --> Product["실질적 가치 창출\n(Value Production)"]
+    
+    Manager -. "생산 방해 차단" .-> Product
+    
+    style Incomp fill:#fce4ec,stroke:#e91e63,stroke-width:1px
+    style Comp fill:#e1f5fe,stroke:#01579b,stroke-width:1px
+    style Manager fill:#fffde7,stroke:#fbc02d,stroke-width:1px
+    style Product fill:#e8f5e9,stroke:#2e7d32,stroke-width:2px
 ```
 
 ### 나. **Dilbert** 원칙 vs **Peter** 원칙 비교 분석
