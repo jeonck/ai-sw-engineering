@@ -74,6 +74,13 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
+    algolia: {
+      appId: '9XXU3ZNQGB',
+      apiKey: 'cb52e34eb02baa0099201c7d06075a7e',
+      indexName: 'ai-sw-engineering',
+      contextualSearch: false,
+      searchPagePath: 'search',
+    },
   } satisfies Preset.ThemeConfig,
 };
 
