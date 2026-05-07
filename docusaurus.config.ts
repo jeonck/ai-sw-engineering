@@ -44,7 +44,13 @@ const config: Config = {
           remarkPlugins: [remarkMath],
           rehypePlugins: [rehypeKatex],
         },
-        blog: false,
+        blog: {
+          showReadingTime: true,
+          blogSidebarTitle: '최근 포스트',
+          blogSidebarCount: 'ALL',
+          remarkPlugins: [remarkMath],
+          rehypePlugins: [rehypeKatex],
+        },
         theme: { customCss: './src/css/custom.css' },
       } satisfies Preset.Options,
     ],
@@ -64,6 +70,7 @@ const config: Config = {
         { type: 'docSidebar', sidebarId: 'developerRoleSidebar', position: 'left', label: '개발자 역할' },
         { type: 'docSidebar', sidebarId: 'llmopsSidebar',        position: 'left', label: 'LLMOps & 보안' },
         { type: 'docSidebar', sidebarId: 'lawsSidebar',          position: 'left', label: 'SW공학의 법칙들' },
+        { to: '/blog', label: '블로그', position: 'left' },
       ],
     },
     footer: {
