@@ -37,3 +37,18 @@ productivity:
   label: 생산성
   permalink: /productivity
   description: 업무 생산성 향상 도구와 방법
+
+platform-engineering:
+  label: 플랫폼 엔지니어링
+  permalink: /platform-engineering
+  description: 내부 개발자 플랫폼 및 플랫폼 엔지니어링 전략
+
+devops:
+  label: DevOps
+  permalink: /devops
+  description: DevOps 문화, 도구, 자동화
+
+developer-experience:
+  label: 개발자 경험
+  permalink: /developer-experience
+  description: 개발자 생산성과 경험 개선
