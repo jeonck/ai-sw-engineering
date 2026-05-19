@@ -44,6 +44,21 @@ AI는 주어진 맥락 안에서 최선의 코드를 만듭니다. 설계자의 
               → AI가 컨텍스트 부족으로 낮은 품질 결과
 ```
 
+```mermaid
+graph TD
+    Task["AI에게 작업 요청"] --> Designer["설계자 역할\n맥락 정의 · 경계 설정 · 컨텍스트 제공"]
+    Designer -->|"올바른 컨텍스트"| AI["AI 코드 생성"]
+    AI --> Validator["검증자 역할\n비판적 시각 · 단계적 검증"]
+    Validator --> Check{올바른가?}
+    Check -->|"합격"| Done["코드 통합"]
+    Check -->|"보완 필요"| Designer
+
+    style Designer fill:#dbeafe,stroke:#2563eb
+    style Validator fill:#d1fae5,stroke:#059669
+    style Done fill:#d1fae5,stroke:#059669
+    style Check fill:#fef3c7,stroke:#d97706
+```
+
 ## 검증자: 비판적 시각을 유지하는 사람
 
 ### Complacency 극복하기

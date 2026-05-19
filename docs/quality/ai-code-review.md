@@ -26,6 +26,21 @@ AI 생성 코드에는 사람이 잘 안 하는 실수와 **다른 유형의 실
 | TODO 방치 | 테스트 커버리지 없는 엣지케이스 |
 | 문서 부족 | 프로젝트 관례 무시 |
 
+```mermaid
+flowchart TD
+    Code["AI 생성 코드"] --> Auto["자동화 검사\n린팅 · 포매팅 · 정적 분석 · 보안 스캔"]
+    Auto --> Human["인간 리뷰\n비즈니스 로직 · 아키텍처 영향 · 트레이드오프"]
+    Human --> Check{리뷰 통과?}
+    Check -->|"합격"| Merge["PR 머지"]
+    Check -->|"수정 필요"| Fix["수정 요청\nAI 재작업"]
+    Fix --> Code
+
+    style Auto fill:#fef3c7,stroke:#d97706
+    style Human fill:#dbeafe,stroke:#2563eb
+    style Merge fill:#d1fae5,stroke:#059669
+    style Fix fill:#fee2e2,stroke:#dc2626
+```
+
 ## 리뷰 체크리스트
 
 ### 기능 정확성

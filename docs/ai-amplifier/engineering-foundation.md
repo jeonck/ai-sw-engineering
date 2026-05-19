@@ -48,6 +48,33 @@ title: 공학 기반의 중요성
 - 코딩 가이드라인 최신화
 - 기술 부채 트래킹
 
+```mermaid
+graph TD
+    subgraph Org["조직 수준"]
+        O1[아키텍처 원칙 문서화]
+        O2[코딩 가이드라인 최신화]
+        O3[기술 부채 트래킹]
+    end
+    subgraph Team["팀 수준"]
+        T1[PR 소단위 유지]
+        T2[리뷰 체크리스트 운영]
+        T3[ADR로 결정 기록]
+    end
+    subgraph Code["코드 수준"]
+        C1[의도를 드러내는 네이밍]
+        C2[단일 책임 원칙 SRP]
+        C3[테스트 가능한 구조]
+    end
+
+    Org --> Team --> Code
+    Code -->|"AI 효과 극대화"| Result["높은 품질 · 빠른 개발"]
+
+    style Org fill:#dbeafe,stroke:#2563eb
+    style Team fill:#fef3c7,stroke:#d97706
+    style Code fill:#d1fae5,stroke:#059669
+    style Result fill:#d1fae5,stroke:#059669
+```
+
 ## 핵심 메시지
 
 AI는 코드를 더 빠르게 만들어주지만, **무엇을 만들어야 하는지**와 **그것이 올바른지**는 여전히 인간 엔지니어의 판단 영역입니다. 공학적 기반이 탄탄할수록 AI를 더 잘 활용할 수 있습니다.

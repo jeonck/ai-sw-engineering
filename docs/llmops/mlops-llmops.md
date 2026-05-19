@@ -66,6 +66,29 @@ stages:
   - monitor:         응답 품질 모니터링
 ```
 
+```mermaid
+flowchart LR
+    subgraph CI["CI 단계"]
+        A["코드 품질\n린팅·타입 체크·단위 테스트"]
+        B["프롬프트 평가\nEvals 실행"]
+        C["통합 테스트\nLLM API 연동"]
+        D["부하 테스트\n레이턴시·처리량"]
+    end
+
+    subgraph CD["CD 단계"]
+        E["스테이징 배포"]
+        F["스모크 테스트"]
+        G["프로덕션 배포"]
+        H["응답 품질 모니터링"]
+    end
+
+    CI --> CD
+    H -->|"품질 저하 감지"| B
+
+    style CI fill:#dbeafe,stroke:#2563eb
+    style CD fill:#d1fae5,stroke:#059669
+```
+
 ## RAG (Retrieval-Augmented Generation) 운영
 
 RAG 파이프라인에는 추가적인 운영 고려사항이 있습니다.

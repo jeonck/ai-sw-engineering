@@ -24,6 +24,19 @@ AI 없는 팀:  ──────────────→  결과물 (느리
 
 AI는 방향을 정해주지 않습니다. 이미 가고 있던 방향을 더 빠르게 갈 뿐입니다.
 
+```mermaid
+flowchart TD
+    AI[AI 도입] --> Strong["공학 기반 강한 조직\n설계 원칙 · 품질 체계 · 문서화"]
+    AI --> Weak["공학 기반 약한 조직\n임시방편 · 기술 부채 · 불명확한 구조"]
+    Strong -->|증폭| Good["결과: 빠르고 품질 높음"]
+    Weak -->|증폭| Bad["결과: 빠르지만 혼란\n기술 부채 폭발적 증가"]
+
+    style Strong fill:#d1fae5,stroke:#059669
+    style Good fill:#d1fae5,stroke:#059669
+    style Weak fill:#fee2e2,stroke:#dc2626
+    style Bad fill:#fee2e2,stroke:#dc2626
+```
+
 ## 무엇이 "공학 기반"인가
 
 다음 요소들이 갖춰진 조직이 AI로 더 큰 효과를 얻습니다.

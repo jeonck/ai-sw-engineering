@@ -58,6 +58,24 @@ def semantic_cache_lookup(query: str) -> Optional[str]:
 | 임베딩 생성 | 전문 임베딩 모델 |
 | 실시간 응답 필요 | 빠른 모델 우선 |
 
+```mermaid
+flowchart TD
+    Task["AI 작업 요청"] --> RT{실시간 응답\n필요?}
+    RT -->|"Yes"| Complex{복잡한 추론\n필요?}
+    RT -->|"No"| Cache{캐시\n가능?}
+
+    Complex -->|"Yes"| Large["대형 모델\n성능 우선"]
+    Complex -->|"No"| Small["소형 모델\n비용 절감"]
+
+    Cache -->|"Yes"| Cached["캐시 활용\n비용 거의 없음"]
+    Cache -->|"No"| Batch["배치 API\n할인율 적용"]
+
+    style Large fill:#fee2e2,stroke:#dc2626
+    style Small fill:#d1fae5,stroke:#059669
+    style Cached fill:#d1fae5,stroke:#059669
+    style Batch fill:#fef3c7,stroke:#d97706
+```
+
 ### 4. 배치 처리
 
 실시간 응답이 필요 없는 작업은 배치로 처리합니다.

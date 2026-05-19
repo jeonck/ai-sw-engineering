@@ -25,6 +25,33 @@ Thoughtworks는 AI 생성 코드에 대한 **complacency(경계 해제)** 현상
 
 ## 품질 보증의 3단계
 
+```mermaid
+flowchart LR
+    subgraph Stage1["1단계: 생성 전\nContext Setting"]
+        A1[코딩 가이드라인 제공]
+        A2[기존 패턴 예시 포함]
+        A3[테스트 요구사항 명시]
+    end
+
+    subgraph Stage2["2단계: 생성 후 즉시\nReview"]
+        B1[로직 정확성 확인]
+        B2[엣지 케이스 검토]
+        B3[보안 취약점 스캔]
+    end
+
+    subgraph Stage3["3단계: 통합 후\nVerification"]
+        C1[자동화 테스트 실행]
+        C2[통합 테스트 통과]
+        C3[관측 가능성으로 이상 감지]
+    end
+
+    Stage1 --> Stage2 --> Stage3
+
+    style Stage1 fill:#dbeafe,stroke:#2563eb
+    style Stage2 fill:#fef3c7,stroke:#d97706
+    style Stage3 fill:#d1fae5,stroke:#059669
+```
+
 ### 1단계: 생성 전 (Context Setting)
 AI에게 좋은 컨텍스트를 제공해 품질 높은 코드가 나오게 합니다.
 - 코딩 가이드라인 제공

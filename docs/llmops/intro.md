@@ -21,6 +21,26 @@ title: LLMOps와 AI 운영
 데이터 수집 → 모델 학습/파인튜닝 → 모델 평가 → 모델 배포 → 모델 모니터링
 ```
 
+```mermaid
+flowchart TD
+    subgraph SDLC["전통 SDLC"]
+        direction LR
+        R[요구사항] --> D[설계] --> I[구현] --> T[테스트] --> DP[배포] --> OP[운영]
+    end
+
+    subgraph LLMOps["AI/ML 파이프라인 LLMOps"]
+        direction LR
+        DC[데이터 수집] --> TR["모델 학습\n파인튜닝"] --> EV[모델 평가] --> MD[모델 배포] --> MM[모델 모니터링]
+    end
+
+    T <-.->|"연동"| TR
+    MD <-.->|"연동"| DP
+    MM -->|"피드백 루프"| DC
+
+    style SDLC fill:#dbeafe,stroke:#2563eb
+    style LLMOps fill:#fef3c7,stroke:#d97706
+```
+
 ## LLMOps의 핵심 요소
 
 ### 1. 파이프라인 구축

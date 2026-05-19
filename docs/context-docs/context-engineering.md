@@ -73,6 +73,24 @@ AI 에이전트가 작업을 어떻게 수행할지 명시합니다.
 높은 품질 컨텍스트  →  AI가 의도 파악  →  일관성 있는 코드
 ```
 
+```mermaid
+graph LR
+    subgraph Context["컨텍스트 구성 요소"]
+        S["코드 구조\nStructure"]
+        R["규칙 문서\nRules"]
+        E["예시\nExamples"]
+        I["지침\nInstructions"]
+    end
+
+    Context -->|"AI에게 제공"| AI["AI 도구"]
+    AI -->|"높은 품질 컨텍스트"| Good["일관성 있는 코드\n의도 파악 가능"]
+    AI -->|"낮은 품질 컨텍스트"| Bad["일관성 없는 코드\n추측에 의존"]
+
+    style Good fill:#d1fae5,stroke:#059669
+    style Bad fill:#fee2e2,stroke:#dc2626
+    style AI fill:#dbeafe,stroke:#2563eb
+```
+
 ## 컨텍스트 엔지니어링 실천
 
 1. **점진적 개선**: CLAUDE.md를 한 번에 완벽하게 쓰려 하지 말고, AI 실수가 발생할 때마다 규칙 추가

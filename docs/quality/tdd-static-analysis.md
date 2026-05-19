@@ -21,6 +21,21 @@ Test-Driven Development(TDD)는 AI 시대에 새로운 의미를 가집니다.
 
 테스트가 먼저 있으면, AI가 생성한 코드의 **정확성을 즉시 검증**할 수 있습니다. 테스트는 AI에게 주는 명세(specification)이자 결과를 검증하는 계약(contract)입니다.
 
+```mermaid
+flowchart LR
+    Test["테스트 작성\n인간 → 명세·계약"] --> AIImpl["AI로 구현\n코드 생성"]
+    AIImpl --> Verify["테스트로 검증\nCI 자동 실행"]
+    Verify -->|"통과"| Refactor["AI로 리팩터링"]
+    Verify -->|"실패"| Fix["컨텍스트 보완\n재요청"]
+    Fix --> AIImpl
+    Refactor --> Test
+
+    style Test fill:#dbeafe,stroke:#2563eb
+    style AIImpl fill:#fef3c7,stroke:#d97706
+    style Verify fill:#d1fae5,stroke:#059669
+    style Fix fill:#fee2e2,stroke:#dc2626
+```
+
 ## 테스트 계층
 
 ### 단위 테스트 (Unit Test)

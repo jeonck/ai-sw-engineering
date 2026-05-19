@@ -23,6 +23,21 @@ title: 아키텍처와 품질속성
 도메인 레이어        ← 인간 엔지니어가 설계해야 하는 영역
 ```
 
+```mermaid
+graph TD
+    UI["외부 레이어\nUI · DB · API · 외부 서비스"]
+    Adapter["어댑터 레이어\nController · Repository · Gateway"]
+    Usecase["유스케이스 레이어\n비즈니스 흐름 구현 ← AI가 잘 구현"]
+    Domain["도메인 레이어\n비즈니스 규칙 · 엔티티 ← 인간이 설계"]
+
+    UI --> Adapter --> Usecase --> Domain
+
+    style Domain fill:#dbeafe,stroke:#2563eb
+    style Usecase fill:#d1fae5,stroke:#059669
+    style Adapter fill:#fef3c7,stroke:#d97706
+    style UI fill:#f3f4f6,stroke:#6b7280
+```
+
 AI는 유스케이스 구현을 빠르게 도울 수 있지만, **도메인 모델과 비즈니스 규칙**은 여전히 인간이 설계해야 합니다.
 
 ### MSA (Microservices Architecture)

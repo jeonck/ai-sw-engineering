@@ -26,6 +26,24 @@ Martin Fowler는 AI 코딩 환경에서 중요한 개념으로 **context enginee
 | README | 프로젝트 소개 | AI의 첫 번째 컨텍스트 |
 | CLAUDE.md | (새로운 역할) | AI 에이전트를 위한 실행 지침 |
 
+```mermaid
+graph LR
+    subgraph Artifacts["공학 산출물"]
+        A[설계 문서]
+        B[ADR]
+        C[테스트 전략]
+        D[코드 구조]
+        E[README]
+        F[CLAUDE.md]
+    end
+
+    Artifacts -->|"컨텍스트로 제공"| AI["AI 도구\n(Claude / Copilot / Cursor)"]
+    AI -->|"구조화된 이해"| Result["일관된 고품질 결과물"]
+
+    style AI fill:#dbeafe,stroke:#2563eb
+    style Result fill:#d1fae5,stroke:#059669
+```
+
 ## 실천 전략
 
 ### CLAUDE.md / AGENTS.md 작성

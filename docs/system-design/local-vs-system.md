@@ -29,6 +29,23 @@ AI가 만든 코드가 **개별적으로는 맞아 보여도**, 전체 시스템
 
 AI 모델의 컨텍스트 윈도우는 유한합니다. AI는 **지금 보이는 것**을 기반으로 최선의 답을 냅니다. 하지만 시스템 전체의 제약사항, 팀 협약, 과거 결정들은 컨텍스트에 없을 수 있습니다.
 
+```mermaid
+graph TD
+    AI["AI\n유한한 컨텍스트 윈도우"] -->|"로컬 최적화"| Local["개별 파일·함수 최적화"]
+    Local -->|"설계 없이 통합"| Problems["시스템 문제 발생"]
+    Problems --> P1["중복 코드"]
+    Problems --> P2["서비스 경계 침범"]
+    Problems --> P3["데이터 무결성 훼손"]
+    Problems --> P4["보안 취약점"]
+
+    Human["인간 엔지니어\n시스템 전체 조망"] -->|"아키텍처 가이드 제공"| AI
+    Human -->|"통합 설계 · 검증"| System["시스템 수준 품질"]
+
+    style Problems fill:#fee2e2,stroke:#dc2626
+    style System fill:#d1fae5,stroke:#059669
+    style Human fill:#dbeafe,stroke:#2563eb
+```
+
 ## 시스템 관점을 유지하는 방법
 
 ### 1. 아키텍처 가이드를 AI 컨텍스트로 제공
